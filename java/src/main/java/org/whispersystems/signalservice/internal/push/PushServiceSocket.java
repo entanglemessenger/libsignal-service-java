@@ -809,7 +809,8 @@ public class PushServiceSocket {
         TrustManager[] trustManagers = BlacklistingTrustManager.createFor(url.getTrustStore());
 
         SSLContext context = SSLContext.getInstance("TLS");
-        context.init(null, trustManagers, null);
+        //PQC//context.init(null, trustManagers, null);
+        context.init(null, null, null);
 
         OkHttpClient client = new OkHttpClient.Builder()
                                               .sslSocketFactory(context.getSocketFactory(), (X509TrustManager)trustManagers[0])

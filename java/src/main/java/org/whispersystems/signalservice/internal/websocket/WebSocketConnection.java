@@ -282,7 +282,8 @@ public class WebSocketConnection extends WebSocketListener {
     try {
       SSLContext     context       = SSLContext.getInstance("TLS");
       TrustManager[] trustManagers = BlacklistingTrustManager.createFor(trustStore);
-      context.init(null, trustManagers, null);
+      //PQC//context.init(null, trustManagers, null);
+      context.init(null, null, null);
 
       return new Pair<>(context.getSocketFactory(), (X509TrustManager)trustManagers[0]);
     } catch (NoSuchAlgorithmException | KeyManagementException e) {

@@ -3,4 +3,7 @@
 *.iml
 local.properties
 build/
+bin/
+cache/
 gradle.properties
+.DS_Store
